@@ -8,6 +8,7 @@ Completion date: 12-08-2018
 
 import turtle
 from random import randint
+from time import sleep
 
 def draw_track(turtle_main):    # this function will draw the race track
     for i in range(22):
@@ -93,18 +94,22 @@ def start_race(turtle_main):        # this function will start the race
         if(flag):   # if we have a winner
             
             if(player_1.xcor()>=200):  # if player 1 is the winner
+                turtle_main.undo()
                 turtle_main.write('Player 1 wins',align='center',font=("Arial", 20, "normal"))
                 flag = 0        # Then display player 1 wins and set flag = 0 (don't check for winner again)
 
             elif(player_2.xcor()>=200): # if player 2 is the winner
+                turtle_main.undo()
                 turtle_main.write('Player 2 wins',align='center',font=("Arial", 20, "normal"))
                 flag = 0        # Then display player 2 wins and set flag = 0 (don't check for winner again)
             
             elif(player_3.xcor()>=200):   # if player 3 is the winner
+                turtle_main.undo()
                 turtle_main.write('Player 3 wins',align='center',font=("Arial", 20, "normal"))
                 flag = 0        # Then display player 3 wins and set flag = 0 (don't check for winner again)
             
             elif(player_4.xcor()>=200):     # if player 4 is the winner
+                turtle_main.undo()
                 turtle_main.write('Player 4 wins',align='center',font=("Arial", 20, "normal"))
                 flag = 0        # Then display player 4 wins and set flag = 0 (don't check for winner again)
 
@@ -116,6 +121,8 @@ scr.title('Turtle Race')
 '''
 The 3 below lines will display text 'Turtle Race' in the position (0,150)
 '''
+
+
 turtle_main.pu()        
 turtle_main.setpos(0,150)
 turtle_main.write('Turtle Race',align='center',font=("Arial", 20, "bold"))
@@ -123,5 +130,11 @@ turtle_main.write('Turtle Race',align='center',font=("Arial", 20, "bold"))
 set_race(turtle_main) # this function will draw the race track
 turtle_main.setpos(0,-250) # will set the main turtle at position (0,-250)
 
+for i in reversed(range(3)):
+    turtle_main.write('The race will start in {}'.format(i+1),align='center',font=("Arial", 20, "normal"))
+    sleep(1)
+    turtle_main.undo()
+
+turtle_main.write('Let\'s go',align='center',font=("Arial", 20, "normal"))
 start_race(turtle_main)  # this function will start the race
 turtle.exitonclick()    # when the race ends the clicking the screen will close the window
