@@ -10,17 +10,24 @@ import turtle
 from random import randint
 from time import sleep
 
-def draw_track(turtle_main):    # this function will draw the race track
+'''
+The below function will draw the race track
+'''
+def draw_track(turtle_main):
     for i in range(22):
         turtle_main.pd()
         turtle_main.forward(10)
         turtle_main.pu()
         turtle_main.forward(10)
         turtle_main.up()
-
-def set_race(turtle_main):  # this function will draw the race start and end line
-    turtle_main.penup()     # along with the separate tracks for each turtle
-    turtle_main.setpos(-200,100)    # Width of the racetrack is 400 units
+'''
+The below function will draw the race start and end line
+along with the separate tracks for each turtle.
+Width of the racetrack is 400 units
+'''
+def set_race(turtle_main):
+    turtle_main.penup() 
+    turtle_main.setpos(-200,100)    
     turtle_main.right(90)
     turtle_main.pd()
     turtle_main.forward(200)
@@ -76,7 +83,7 @@ def set_players():
     return (player_1,player_2,player_3,player_4)    # return instance of each player
 
 '''
-the below function will start the race
+The below function will start the race
 '''
 def start_race(turtle_main):
     
@@ -84,7 +91,7 @@ def start_race(turtle_main):
     flag = 1        # this flag will check if we have a winner or not
 
     '''
-    the below loop will continue until all players reach the end line i.e x-cordinate=200
+    The below loop will continue until all players reach the end line i.e x-cordinate=200
     '''
     while(player_1.xcor()<200 or player_2.xcor()<200 or player_3.xcor()<200 or player_4.xcor()<200):
 
